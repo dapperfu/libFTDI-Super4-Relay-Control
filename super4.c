@@ -136,7 +136,12 @@ void initBoard(char *serial) {
     // ftdi_enable_bitbang(&ftdic, 0xFF);
 }
 
-void helpMessage() { printf("Help Message\n\n"); }
+void helpMessage() {
+    printf("Help:\n\n");
+    printf("-l: List Relays\n");
+    printf("-m: Set Relay Mask\n");
+    printf("-r: Read Relay Status\n");
+}
 
 int main(int argc, char **argv) {
     static int read, mask;
@@ -179,6 +184,7 @@ int main(int argc, char **argv) {
             break;
         default:
             helpMessage();
+            listRelays();
             return 1;
             break;
         }
