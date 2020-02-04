@@ -1,5 +1,5 @@
 # Config
-LLVM_VER?=6.0
+LLVM_VER?=9
 
 ## Source Files
 C_SRC := $(wildcard *.c)
@@ -28,7 +28,7 @@ super4: ${C_ASM}
 # Format C
 .PHONY: format
 format: ${C_SRC}
-	clang-format-${LLVM_VER} -i -style=file ${^}
+	clang-format-${LLVM_VER} -i ${^}
 
 # IR Output target
 .PHONY: ir
